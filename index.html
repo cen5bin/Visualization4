@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/d3.min.js"> </script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!--<script src="js/jquery-1.11.1.min.js"></script>-->
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/mycss.css">
+
+    <title></title>
+</head>
+<body>
+    <div id="main-container">
+        <div id="map"></div>
+        <div id="graphs"></div>
+    </div>
+
+    <script type="text/javascript">
+        var data = ["5", "2", "3"];
+        d3.select("#asd").selectAll("p").data(data).enter().append("p").text(function(d){return d;});
+        var projection = d3.geo.mercator()
+                .center([107, 31])
+                .scale(850)
+                .translate([300/2, 300/2]);
+        var path = d3.geo.path()
+                .projection(projection);
+
+        var svg = d3.select("#map").append("svg").attr("width", 300).attr("height", 300);
+
+        d3.json("data/GBR.json", function (error ,root) {
+            if (error) return console.error(error);
+            console.log(root.type);
+            svg.selectAll("path")
+                    .data(root.objects.subunits.geometries)
+                    .enter()
+                    .append("path")
+                    .attr("stroke", "#000000")
+                    .attr("stroke-width", 1)
+                    .attr("fill", function (d, i) {
+                        return "#0000FF";
+                    })
+                    .attr("d", function (d) {
+                        return path(d);
+                    });
+
+        });
+
+    </script>
+</body>
+</html>
