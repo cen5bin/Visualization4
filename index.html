@@ -10,6 +10,7 @@
     <script src="http://d3js.org/queue.v1.min.js"></script>
     <script src="http://d3js.org/topojson.v1.min.js"></script>
     <script src="js/Chart.js"></script>
+    <script src="js/echarts-all.js"></script>
     <link rel="stylesheet" href="css/mycss.css">
 
     <title></title>
@@ -25,45 +26,17 @@
             </ul>
 
             <div id="chart-container">
-                <canvas id="chart-area" width="400" height="400"/>
+                <!--<canvas id="chart-area" width="400" height="400"/>-->
             </div>
 
         </div>
     </div>
 
-    <script src="js/data.js"></script>
+    <script src="js/mychart.js"></script>
     <script type="text/javascript">
-        
-        var showPieChart = function (id, data) {
-            var ctx = document.getElementById(id).getContext("2d");
-            return new Chart(ctx).Pie(data);
-        };
-
-        var showBarChart = function(id, data, width, height) {
-            var ctx = document.getElementById(id).getContext("2d");
-
-//            d3.select(id)
-//                    .attr("width", width)
-//                    .attr("height", height);
-            var ret = new Chart(ctx).Bar(data, {
-                responsive : true
-            });
-//            Bar.defaults.barValueSpacing = 1000;
-        };
-        
-        var width = 500,
-                height = 650;
-
-        // data goes here
-        var data=[["Aberdeen",12,0.414],["Aberdeenshire",9,0.396],["Angus",16,0.437],["Argyll and Bute",13,0.415],["Clackmannanshire",21,0.462],["Dumfries and Galloway",3,0.343],["Dundee",32,0.573],["East Ayrshire",25,0.472],["East Dunbartonshire",7,0.388],["East Lothian",6,0.383],["East Renfrewshire",5,0.368],["Edinburgh",8,0.389],["Eilean Siar",23,0.466],["Falkirk",22,0.465],["Fife",19,0.45],["Glasgow",30,0.535],["Highland",24,0.471],["Inverclyde",28,0.499],["Midlothian",17,0.437],["Moray",15,0.424],["North Ayshire",27,0.489],["North Lanarkshire",29,0.511],["Orkney Islands",1,0.328],["Perthshire and Kinross",10,0.398],["Renfrewshire",26,0.472],["Scottish Borders",2,0.334],["Shetland Islands",4,0.363],["South Ayrshire",14,0.421],["South Lanarkshire",20,0.453],["Stirling",11,0.402],["West Dunbartonshire",31,0.54],["West Lothian",18,0.448]];var title='Scottish Independence Referendum, 2014';var desc='BBC. 18 September 2014. Retrieved 18 September 2014.';var credits='by Guo tianyou - 2014';var units='Ballots for Independence(%)';
-
-
-
-
-
         $(document).ready(function () {
-//            showPieChart("chart-area", pieData);
-//            showBarChart("chart-area", barChartData, 400, 400);
+
+            showPieChart("chart-container", null);
         });
 
     </script>

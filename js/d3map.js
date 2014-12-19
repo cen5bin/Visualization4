@@ -1,5 +1,33 @@
 // DATA 
 // parse data properly
+
+
+
+
+var width = 500, height = 650;
+var data=[["Aberdeen",12,0.414],["Aberdeenshire",9,0.396],
+    ["Angus",16,0.437],["Argyll and Bute",13,0.415],["Clackmannanshire",21,0.462],
+    ["Dumfries and Galloway",3,0.343],["Dundee",32,0.573],["East Ayrshire",25,0.472],
+    ["East Dunbartonshire",7,0.388],["East Lothian",6,0.383],["East Renfrewshire",5,0.368],
+    ["Edinburgh",8,0.389],["Eilean Siar",23,0.466],["Falkirk",22,0.465],["Fife",19,0.45],
+    ["Glasgow",30,0.535],["Highland",24,0.471],["Inverclyde",28,0.499],["Midlothian",17,0.437],
+    ["Moray",15,0.424],["North Ayshire",27,0.489],["North Lanarkshire",29,0.511],["Orkney Islands",1,0.328],
+    ["Perthshire and Kinross",10,0.398],["Renfrewshire",26,0.472],["Scottish Borders",2,0.334],
+    ["Shetland Islands",4,0.363],["South Ayrshire",14,0.421],["South Lanarkshire",20,0.453],
+    ["Stirling",11,0.402],["West Dunbartonshire",31,0.54],["West Lothian",18,0.448]];
+var title='Scottish Independence Referendum, 2014';
+var desc='BBC. 18 September 2014. Retrieved 18 September 2014.';
+var credits='by Guo tianyou - 2014';
+var units='Ballots for Independence(%)';
+
+
+
+
+
+
+
+
+
 var umap = []
 data.map(function(d) {umap[d[0]]=Number(d[1])});
 console.log(umap);
