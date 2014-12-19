@@ -3,7 +3,7 @@
     border: 1px solid #cccccc;
     margin-top: 5px;
     margin-left: 5px;
-    width: 1024px;
+    width: 1124px;
     height: 650px;
     margin-left: auto;
     margin-right: auto;
@@ -14,7 +14,7 @@
     border: 1px solid #cccccc;
     display: inline;
     float: left;
-    width: 40%;
+    width: 400px;
     height: 100%;
     /*background-color: #000000;*/
 }
@@ -22,7 +22,29 @@
 #graphs {
     display: inline;
     float: left;
-    width: 60%;
+    width: 720px;
     height: 100%;
     /*background-color: green;*/
+}
+
+.center-component {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#graph-nav {
+    margin-top: 10px;
+}
+
+#chart-container {
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    margin-top: 40px;
+    text-align: center;
+}
+
+#chart-area {
+    width: 400px;
+    height: 400px;
 }

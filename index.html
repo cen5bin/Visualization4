@@ -2,11 +2,14 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <script type="text/javascript" src="js/d3.min.js"> </script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <!--<script src="js/jquery-1.11.1.min.js"></script>-->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/queue.v1.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="js/Chart.js"></script>
     <link rel="stylesheet" href="css/mycss.css">
 
     <title></title>
@@ -14,39 +17,56 @@
 <body>
     <div id="main-container">
         <div id="map"></div>
-        <div id="graphs"></div>
+        <div id="graphs">
+            <ul class="nav nav-pills center-component" id="graph-nav" role="tablist">
+                <li role="presentation" class="active"><a href="#">Home</a></li>
+                <li role="presentation"><a href="#">Profile</a></li>
+                <li role="presentation"><a href="#">Messages</a></li>
+            </ul>
+
+            <div id="chart-container">
+                <canvas id="chart-area" width="400" height="400"/>
+            </div>
+
+        </div>
     </div>
 
+    <script src="js/data.js"></script>
     <script type="text/javascript">
-        var data = ["5", "2", "3"];
-        d3.select("#asd").selectAll("p").data(data).enter().append("p").text(function(d){return d;});
-        var projection = d3.geo.mercator()
-                .center([107, 31])
-                .scale(850)
-                .translate([300/2, 300/2]);
-        var path = d3.geo.path()
-                .projection(projection);
+        
+        var showPieChart = function (id, data) {
+            var ctx = document.getElementById(id).getContext("2d");
+            return new Chart(ctx).Pie(data);
+        };
 
-        var svg = d3.select("#map").append("svg").attr("width", 300).attr("height", 300);
+        var showBarChart = function(id, data, width, height) {
+            var ctx = document.getElementById(id).getContext("2d");
 
-        d3.json("data/GBR.json", function (error ,root) {
-            if (error) return console.error(error);
-            console.log(root.type);
-            svg.selectAll("path")
-                    .data(root.objects.subunits.geometries)
-                    .enter()
-                    .append("path")
-                    .attr("stroke", "#000000")
-                    .attr("stroke-width", 1)
-                    .attr("fill", function (d, i) {
-                        return "#0000FF";
-                    })
-                    .attr("d", function (d) {
-                        return path(d);
-                    });
+//            d3.select(id)
+//                    .attr("width", width)
+//                    .attr("height", height);
+            var ret = new Chart(ctx).Bar(data, {
+                responsive : true
+            });
+//            Bar.defaults.barValueSpacing = 1000;
+        };
+        
+        var width = 500,
+                height = 650;
 
+        // data goes here
+        var data=[["Aberdeen",12,0.414],["Aberdeenshire",9,0.396],["Angus",16,0.437],["Argyll and Bute",13,0.415],["Clackmannanshire",21,0.462],["Dumfries and Galloway",3,0.343],["Dundee",32,0.573],["East Ayrshire",25,0.472],["East Dunbartonshire",7,0.388],["East Lothian",6,0.383],["East Renfrewshire",5,0.368],["Edinburgh",8,0.389],["Eilean Siar",23,0.466],["Falkirk",22,0.465],["Fife",19,0.45],["Glasgow",30,0.535],["Highland",24,0.471],["Inverclyde",28,0.499],["Midlothian",17,0.437],["Moray",15,0.424],["North Ayshire",27,0.489],["North Lanarkshire",29,0.511],["Orkney Islands",1,0.328],["Perthshire and Kinross",10,0.398],["Renfrewshire",26,0.472],["Scottish Borders",2,0.334],["Shetland Islands",4,0.363],["South Ayrshire",14,0.421],["South Lanarkshire",20,0.453],["Stirling",11,0.402],["West Dunbartonshire",31,0.54],["West Lothian",18,0.448]];var title='Scottish Independence Referendum, 2014';var desc='BBC. 18 September 2014. Retrieved 18 September 2014.';var credits='by Guo tianyou - 2014';var units='Ballots for Independence(%)';
+
+
+
+
+
+        $(document).ready(function () {
+//            showPieChart("chart-area", pieData);
+//            showBarChart("chart-area", barChartData, 400, 400);
         });
 
     </script>
+    <script src="js/d3map.js"></script>
 </body>
 </html>
