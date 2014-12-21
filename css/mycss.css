@@ -37,13 +37,16 @@
     margin-top: 10px;
 }
 
-#chart-container {
+#chart-container, #chart-container1 {
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
     text-align: center;
     width: 600px;
-    height: 400px;
+    height: 500px;
+}
+#chart-container1 {
+    display: none;
 }
 
 #color-label-bar {

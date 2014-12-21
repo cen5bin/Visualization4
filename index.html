@@ -25,12 +25,17 @@
         </div>
         <div id="graphs">
             <ul class="nav nav-pills center-component" id="graph-nav" role="tablist">
-                <li role="presentation" class="active"><a href="#">投票情况</a></li>
-                <li role="presentation"><a href="#">Profile</a></li>
-                <li role="presentation"><a href="#">Messages</a></li>
+                <li role="presentation" class="active"  id="voteResult"><a href="#">投票结果</a></li>
+                <li role="presentation" class="none"  id="voteInfo"><a href="#">投票情况</a></li>
+                <!--<li role="presentation" class="none"  id="voteResul"><a href="#">Messages</a></li>-->
             </ul>
 
             <div id="chart-container">
+                <!--<canvas id="chart-area" width="400" height="400"/>-->
+            </div>
+            <div id="chart-container1">
+                <img src="img/blue.png">
+                <img src="img/gray.png">
                 <!--<canvas id="chart-area" width="400" height="400"/>-->
             </div>
 
@@ -38,11 +43,24 @@
     </div>
 
     <script src="js/mychart.js"></script>
+    <script src="js/myfuncs.js"></script>
     <script src="js/d3map.js"></script>
     <script type="text/javascript">
+
+
+
         $(document).ready(function () {
 
-            showPieChart("chart-container", null);
+
+            for (var i = 0; i < ids.length; i++) {
+                var id = "#" + ids[i];
+                $(id).attr("onclick", ids[i]+"()");
+            }
+
+
+//            $("#voteresult").attr("onclick", "voteResult()");
+
+//            showPieChart("chart-container", null);
             insertColorLabel("color-label-bar");
 
         });

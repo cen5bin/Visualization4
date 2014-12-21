@@ -1,7 +1,7 @@
 // DATA 
 // parse data properly
 
-
+var globaldata = {};
 
 
 var width = 500, height = 650;
@@ -339,6 +339,15 @@ function drawProvinces(error, cn) {
 
         })
         .on("click", function (d, i) {
+
+            var tmpData = {};
+            tmpData.title = data[i][0] + "投票情况";
+            tmpData.data = [{value: data[i][2],  name:"支持独立"},
+                {value:1 - data[i][2],name:"反对独立"}];
+            globaldata.pieData1 = tmpData;
+            voteResult();
+            showPieChart("chart-container", tmpData);
+
             //d3.select(this).attr("fill", colors[0]);
             //svg.transition()
             //    .delay(250)
