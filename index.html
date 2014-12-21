@@ -17,10 +17,15 @@
 </head>
 <body>
     <div id="main-container">
-        <div id="map"></div>
+        <div id="map">
+            <div id="color-label-bar">
+
+            </div>
+
+        </div>
         <div id="graphs">
             <ul class="nav nav-pills center-component" id="graph-nav" role="tablist">
-                <li role="presentation" class="active"><a href="#">Home</a></li>
+                <li role="presentation" class="active"><a href="#">投票情况</a></li>
                 <li role="presentation"><a href="#">Profile</a></li>
                 <li role="presentation"><a href="#">Messages</a></li>
             </ul>
@@ -33,13 +38,16 @@
     </div>
 
     <script src="js/mychart.js"></script>
+    <script src="js/d3map.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
 
             showPieChart("chart-container", null);
+            insertColorLabel("color-label-bar");
+
         });
 
     </script>
-    <script src="js/d3map.js"></script>
+
 </body>
 </html>

@@ -20,9 +20,72 @@ var desc='BBC. 18 September 2014. Retrieved 18 September 2014.';
 var credits='by Guo tianyou - 2014';
 var units='Ballots for Independence(%)';
 
+var colors = ["rgb(112, 255, 114)", "rgb(162, 255, 179)", "rgb(210, 255, 217)", "rgb(255, 213, 213)",
+    "rgb(255, 169, 171)","rgb(255, 127, 130)","rgb(255, 83, 88)","rgb(255, 37, 49)","rgb(255, 0, 23)","rgb(255, 0, 17)"];
+
+
+var getColor = function(x) {
+    var tmp = Math.floor((1 - x - 0.425 + 0.00000001)/0.025);
+    if (tmp < 0) tmp = 0;
+    return colors[tmp];
+};
+
+var insertColorLabel = function(container) {
+
+    var colors1 = [colors.slice(0, 4), colors.slice(5,9)];
+    var data0 = ["45%", "50%", "55%", "60%", "65%"];
 
 
 
+    d3.select("#"+container)
+        .append("div")
+        .style("display", "inline")
+
+        //.attr("class","color-label-bar-node1")
+        //.text("支持独立：")
+        .append("div")
+        .style("margin-left", "5px")
+        .selectAll("div")
+        .data(colors)
+        .enter()
+        .append("div")
+        .attr("class","color-label-bar-node")
+        //.append("div")
+        .attr("class", "color-label")
+        .style("background-color", function(d, i){
+            return colors[i];
+        });
+        //.text(function(d, i){return i;});
+
+
+    d3.select("#"+container)
+        .append("div")
+        .style("display", "inline")
+
+        //.attr("class","color-label-bar-node1")
+        //.text("支持独立：")
+        .append("div")
+        .style("margin-left", "27px")
+        .selectAll("div")
+        .data(colors)
+        .enter()
+        .append("span")
+        .style("margin-left", function (d, i) {
+            if (i == 0) return "0px";
+            return "10px";
+        })
+        .style("font-size", "6px")
+        .style("font-weight", 100)
+        .style("color", function(d, i){
+            if (i % 2) return "#ffffff";
+            return "#bbbbbb";
+        })
+        .text(function (d, i) {
+            if (i % 2) return "aaa";
+            return data0[i/2];
+
+        })
+};
 
 
 
@@ -258,7 +321,9 @@ function drawProvinces(error, cn) {
         .attr("id", function(d) { return d.properties.ID_2; })
         .attr("class", "province")
         .attr("fill", "#ffffff")
-        //.attr("fill", "#cccccc")
+        .attr("fill", function(d, i){
+            return getColor(data[i][2]);
+        })
         //.attr("fill", function(d) { return color( smap[umap[d.properties.NAME_2]]); })
         .attr("stroke", "black")
         .attr("stroke-width", "0.35")
@@ -274,12 +339,13 @@ function drawProvinces(error, cn) {
 
         })
         .on("click", function (d, i) {
+            //d3.select(this).attr("fill", colors[0]);
             //svg.transition()
             //    .delay(250)
             //    .duration(250)
             //    .attr("transform", "scale(2)");
 
-            alert(i);
+            //alert(data[i][2]);
         });
 }
 
