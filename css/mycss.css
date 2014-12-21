@@ -16,6 +16,7 @@
     float: left;
     width: 400px;
     height: 100%;
+    /*background-color: #99ccff;*/
     /*background-color: #000000;*/
 }
 
@@ -47,6 +48,32 @@
 }
 #chart-container1 {
     display: none;
+}
+
+#chart-container1 table {
+    /*border: solid 1px #000000;*/
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+}
+
+#chart-container1 td {
+    vertical-align:bottom;
+}
+
+#validvote {
+    color: rgb(66, 139, 202);
+}
+
+#invalidvote {
+    color: rgb(180, 180, 180);
+}
+
+#validimg, #invalidimg {
+    height: 200px;
+    /*margin-bottom: 0px ;*/
+    vertical-align:bottom;
 }
 
 #color-label-bar {

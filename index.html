@@ -26,7 +26,7 @@
         <div id="graphs">
             <ul class="nav nav-pills center-component" id="graph-nav" role="tablist">
                 <li role="presentation" class="active"  id="voteResult"><a href="#">投票结果</a></li>
-                <li role="presentation" class="none"  id="voteInfo"><a href="#">投票情况</a></li>
+                <li role="presentation" class="none"  id="voteInfo"><a href="#">投票详情</a></li>
                 <!--<li role="presentation" class="none"  id="voteResul"><a href="#">Messages</a></li>-->
             </ul>
 
@@ -34,14 +34,25 @@
                 <!--<canvas id="chart-area" width="400" height="400"/>-->
             </div>
             <div id="chart-container1">
-                <img src="img/blue.png">
-                <img src="img/gray.png">
+                <table>
+                    <tr>
+                        <td><img src="img/blue.png" id="validimg"></td>
+                        <td><img src="img/gray.png" id="invalidimg"></td>
+                    </tr>
+                    <tr>
+                        <td id="validvote">asd1</td>
+                        <td id="invalidvote">asd2</td>
+                    </tr>
+                </table>
+
+
                 <!--<canvas id="chart-area" width="400" height="400"/>-->
             </div>
 
         </div>
     </div>
 
+    <script src="js/data.js"></script>
     <script src="js/mychart.js"></script>
     <script src="js/myfuncs.js"></script>
     <script src="js/d3map.js"></script>

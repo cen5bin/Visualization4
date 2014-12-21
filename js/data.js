@@ -1,59 +1,35 @@
 /**
  * Created by wubincen on 14/12/19.
  */
-var pieData = [
-    {
-        value: 300,
-        color:"#F7464A",
-        highlight: "#FF5A5E",
-        label: "Red"
-    },
-    {
-        value: 50,
-        color: "#46BFBD",
-        highlight: "#5AD3D1",
-        label: "Green"
-    },
-    {
-        value: 100,
-        color: "#FDB45C",
-        highlight: "#FFC870",
-        label: "Yellow"
-    },
-    {
-        value: 40,
-        color: "#949FB1",
-        highlight: "#A8B3C5",
-        label: "Grey"
-    },
-    {
-        value: 120,
-        color: "#4D5360",
-        highlight: "#616774",
-        label: "Dark Grey"
-    }
-
-];
-
-var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
-
-var barChartData = {
-    labels : ["January","February","March","April","May","June","July"],
-    datasets : [
-        {
-            fillColor : "rgba(220,220,220,0.5)",
-            strokeColor : "rgba(220,220,220,0.8)",
-            highlightFill: "rgba(220,220,220,0.75)",
-            highlightStroke: "rgba(220,220,220,1)",
-            data : [65,59,90,81,56,55,40]
-        },
-        {
-            fillColor : "rgba(151,187,205,0.5)",
-            strokeColor : "rgba(151,187,205,0.8)",
-            highlightFill : "rgba(151,187,205,0.75)",
-            highlightStroke : "rgba(151,187,205,1)",
-            data : [28,48,40,19,96,27,100]
-        }
-    ]
-
-}
+var voteInfoData = {"Orkney Islands":{"valid":14887,"invalid":2899},
+    "Shetland Islands":{"valid":15620,"invalid":2887},
+    "Eilean Siar":{"valid":19739,"invalid":3160},
+    "Clackmannanshire":{"valid":35386,"invalid":4553},
+    "East Renfrewshire":{"valid":65977,"invalid":7006},
+    "Stirling":{"valid":62163,"invalid":6830},
+    "Argyll and Bute":{"valid":63467,"invalid":8491},
+    "Midlothian":{"valid":60342,"invalid":9176},
+    "Moray":{"valid":64167,"invalid":10970},
+    "Inverclyde":{"valid":54572,"invalid":7867},
+    "East Lothian":{"valid":71750,"invalid":10156},
+    "Scottish Borders":{"valid":83459,"invalid":12032},
+    "East Dunbartonshire":{"valid":78938,"invalid":7807},
+    "West Dunbartonshire":{"valid":62396,"invalid":8589},
+    "South Ayrshire":{"valid":81649,"invalid":13181},
+    "Angus":{"valid":80236,"invalid":13388},
+    "Dumfries and Galloway":{"valid":106653,"invalid":15236},
+    "East Ayrshire":{"valid":84204,"invalid":15446},
+    "Perthshire and Kinross":{"valid":104189,"invalid":15706},
+    "North Ayshire":{"valid":96088,"invalid":17760},
+    "Falkirk":{"valid":108519,"invalid":13825},
+    "West Lothian":{"valid":119024,"invalid":19055},
+    "Dundee":{"valid":93500,"invalid":25155},
+    "Renfrewshire":{"valid":117533,"invalid":17098},
+    "Aberdeen":{"valid":143484,"invalid":32139},
+    "Aberdeenshire":{"valid":179943,"invalid":26414},
+    "Highland":{"valid":165808,"invalid":24776},
+    "South Lanarkshire":{"valid":222790,"invalid":38394},
+    "Fife":{"valid":253936,"invalid":48009},
+    "North Lanarkshire":{"valid":226705,"invalid":41903},
+    "Edinburgh":{"valid":318565,"invalid":58882},
+    "Glasgow":{"valid":364126,"invalid":121375}};

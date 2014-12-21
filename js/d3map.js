@@ -345,6 +345,7 @@ function drawProvinces(error, cn) {
             tmpData.data = [{value: data[i][2],  name:"支持独立"},
                 {value:1 - data[i][2],name:"反对独立"}];
             globaldata.pieData1 = tmpData;
+            globaldata.province = data[i][0];
             voteResult();
             showPieChart("chart-container", tmpData);
 
