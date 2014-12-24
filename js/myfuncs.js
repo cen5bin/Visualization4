@@ -62,8 +62,19 @@ var voteInfo = function (arg) {
 
     if (!globaldata.province) return;
     var tmp = voteInfoData[globaldata.province];
-    document.getElementById("validvote").innerText = "有效投票:" + tmp["valid"]+"票";
-    document.getElementById("invalidvote").innerText = "无效投票:" + tmp["invalid"]+"票";
+
+    var speed = 500;
+    $("#validvote").animate({ top: '+=20px', opacity: '0' },speed/2, function(){
+        $("#validvote").html("有效投票:" + tmp["valid"]+"票");
+    }).animate({ top: '-=20px', opacity: '1' }, speed/2) ;
+
+    $("#invalidvote").animate({ top: '+=20px', opacity: '0' },speed/2, function(){
+        $("#invalidvote").html("无效投票:" + tmp["invalid"]+"票");
+    }).animate({ top: '-=20px', opacity: '1' }, speed/2) ;
+
+    //$("#validvote").html("有效投票:" + tmp["valid"]+"票");
+    //document.getElementById("validvote").innerText = "有效投票:" + tmp["valid"]+"票";
+    //document.getElementById("invalidvote").innerText = "无效投票:" + tmp["invalid"]+"票";
 
     var hh = $("#validimg").css("width");
     hh = parseInt(hh.substr(0, hh.length-2));
@@ -88,7 +99,7 @@ var voteInfo = function (arg) {
     $("#validimg").css("width", "0px")
         .css("height", "0px");
 
-    var speed = 500;
+
     $("#invalidimg").animate({
         "width": w2+"px",
         "height": h2+"px"
