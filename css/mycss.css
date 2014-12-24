@@ -38,7 +38,7 @@
     margin-top: 10px;
 }
 
-#chart-container, #chart-container1 {
+#chart-container, #chart-container1 , #chart-container2 {
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
@@ -103,6 +103,25 @@
 .color-label-text {
     float: left;
     display: inline;
+}
+
+#vote-bar {
+    height: 50px;
+    width: 80%;
+    /*background-color: red;*/
+    margin: auto;
+    margin-top: 50px;
+}
+
+#vote-bar div {
+    text-align: center;
+    vertical-align: middle;
+    height: 80%;
+    display: inline;
+    float: left;
+    color: #ffffff;
+    padding-top: 10px;
+    /*margin-top: 10%;*/
 }
 
 /*#chart-area {*/

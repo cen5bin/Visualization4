@@ -1,8 +1,8 @@
 /**
  * Created by wubincen on 14/12/21.
  */
-var ids = ["voteResult", "voteInfo"];
-var chartContainers = ["chart-container", "chart-container1"];
+var ids = ["voteResult", "voteInfo", "populationInfo"];
+var chartContainers = ["chart-container", "chart-container1", "chart-container2"];
 var clearActive = function () {
     for (var i = 0; i < ids.length; i++) {
         var id = "#" + ids[i];
@@ -13,6 +13,7 @@ var clearActive = function () {
     }
 };
 
+//隐藏图标显示区域
 var hideAll = function() {
     for (var i = 0; i < chartContainers.length; i++) {
         var id = "#" + chartContainers[i];
@@ -24,14 +25,18 @@ var hideAll = function() {
     }
 };
 
+//查看投票结果
 var voteResult = function () {
     if ($("#voteResult").attr("class") == "active") return;
     clearActive();
     $("#voteResult").attr("class", "active");
     hideAll();
     $("#chart-container").css("display", "block");
+    showPieChart("chart-container", globaldata.pieData1);
+
 };
 
+//查看投票详情
 var voteInfo = function () {
     if ($("#voteInfo").attr("class") == "active") return;
     clearActive();
@@ -41,8 +46,8 @@ var voteInfo = function () {
 
     if (!globaldata.province) return;
     var tmp = voteInfoData[globaldata.province];
-    document.getElementById("validvote").innerText = "有效投票:" + tmp["valid"];
-    document.getElementById("invalidvote").innerText = "无效投票:" + tmp["invalid"];
+    document.getElementById("validvote").innerText = "有效投票:" + tmp["valid"]+"票";
+    document.getElementById("invalidvote").innerText = "无效投票:" + tmp["invalid"]+"票";
 
     var hh = $("#validimg").css("width");
     hh = parseInt(hh.substr(0, hh.length-2));
@@ -53,15 +58,11 @@ var voteInfo = function () {
     var tmp2 = parseInt(tmp["invalid"]);
     if (tmp1 > tmp2) {
         var tmp0 = Math.sqrt(tmp2/tmp1);
-        //h2 = h1 * tmp2 / tmp1;
-        //w2 = w1 * tmp2 / tmp1;
         h2 = h1 * tmp0;
         w2 = w1 * tmp0;
     }
     else {
         var tmp0 = Math.sqrt(tmp1/tmp2);
-        //h1 = h2 * tmp1 / tmp2;
-        //w1 = w2 * tmp1 / tmp2;
         h1 = h2 * tmp0;
         w1 = w2 * tmp0;
     }
@@ -70,5 +71,42 @@ var voteInfo = function () {
     $("#validimg").css("width", w1+"px")
         .css("height", h1+"px");
     //alert(hh);
+    var support = Math.round(tmp1 * globaldata.support);
+    var unsupport = tmp1 - support;
+    var all = 100;
+    var width1 = Math.round(globaldata.support * all) + "%";
+    var width2 = (all - Math.round(globaldata.support * all)) + "%";
+    //$("#vote-bar").removeNode("div");
+    $("#vote-bar div").remove();
+    //alert($("#vote-bar div").htmlText);
+    $("<div>支持独立 "+ support+" 票</div>").appendTo("#vote-bar").css("width", width1).css("background-color", "red");
+    $("<div>反对独立 "+ unsupport+" 票</div>").appendTo("#vote-bar").css("width", width2).css("background-color", "blue");
 
+};
+
+//查看人口分布
+var populationInfo = function() {
+    if ($("#populationInfo").attr("class") == "active") return;
+    clearActive();
+    $("#populationInfo").attr("class", "active");
+    hideAll();
+    $("#chart-container2").css("display", "block");
+    var tmpData = {};
+    tmpData.title = globaldata.province + "人口分布情况";
+    tmpData.data = [];
+    var tmp1 = [ "Scottish", "British",	"Irish", "CypsyCypsy", "polish", "mixed", "Asian", "African", "Arab", "Other"];
+    var yes = false;
+    for (var i = 0; i < populationInfoData.data.length; i++)
+    if (populationInfoData.data[i].Comunity === globaldata.province) {
+        for (var j = 0; j < tmp1.length; j++)
+        tmpData.data.push({name:tmp1[j], value:populationInfoData.data[i][tmp1[j]]});
+        yes = true;
+        break;
+    }
+    if (!yes) {
+        alert("populationinfo error");
+        return;
+    }
+    globaldata.pieData2 = tmpData;
+    showPieChart1("chart-container2", globaldata.pieData2);
 };
