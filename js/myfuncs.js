@@ -63,7 +63,7 @@ var voteInfo = function (arg) {
     if (!globaldata.province) return;
     var tmp = voteInfoData[globaldata.province];
 
-    var speed = 500;
+    var speed = 600;
     $("#validvote").animate({ top: '+=20px', opacity: '0' },speed/2, function(){
         $("#validvote").html("有效投票:" + tmp["valid"]+"票");
     }).animate({ top: '-=20px', opacity: '1' }, speed/2) ;
@@ -125,6 +125,10 @@ var voteInfo = function (arg) {
     //alert($("#vote-bar div").htmlText);
     $("<div>支持独立 "+ support+" 票</div>").appendTo("#vote-bar").css("width", width1).css("background-color", "red");
     $("<div>反对独立 "+ unsupport+" 票</div>").appendTo("#vote-bar").css("width", width2).css("background-color", "blue");
+
+    $("#vote-bar").animate({width:"-=100px"}, speed/3)
+        .animate({width:"+=200px"}, speed/3)
+        .animate({width:"-=100px"}, speed/3);
 
 };
 
