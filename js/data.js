@@ -73,7 +73,7 @@ var populationInfoData = {
 }
 
 
-var provinceData = ["Local authority","Orkney Islands","Shetland Islands","Eilean Siar","Clackmannanshire","East Renfrewshire",
+var provinceData = ["Orkney Islands","Shetland Islands","Eilean Siar","Clackmannanshire","East Renfrewshire",
     "Stirling","Argyll and Bute","Midlothian","Moray","Inverclyde","East Lothian","Scottish Borders","East Dunbartonshire",
     "West Dunbartonshire","South Ayrshire","Angus","Dumfries and Galloway","East Ayrshire","Perthshire and Kinross","North Ayshire",
     "Falkirk","West Lothian","Dundee","Renfrewshire","Aberdeen","Aberdeenshire","Highland","South Lanarkshire","Fife","North Lanarkshire","Edinburgh","Glasgow"];

@@ -58,7 +58,7 @@
             </div>
             <div id="chart-container1">
                 <table>
-                    <tr>
+                    <tr id="imgtr">
                         <td><img src="img/blue.png" id="validimg"></td>
                         <td><img src="img/gray.png" id="invalidimg"></td>
                     </tr>
@@ -90,7 +90,7 @@
 
             for (var i = 0; i < ids.length; i++) {
                 var id = "#" + ids[i];
-                $(id).attr("onclick", ids[i]+"()");
+                $(id).attr("onclick", "work("+ids[i]+")");
             }
             insertColorLabel("color-label-bar");
 

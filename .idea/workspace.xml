@@ -7,6 +7,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/mycss.css" afterPath="$PROJECT_DIR$/css/mycss.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/myfuncs.js" afterPath="$PROJECT_DIR$/js/myfuncs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Visualization4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,21 +34,20 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.833334" vertical-offset="1054" max-vertical-offset="1800">
-              <caret line="102" column="2" selection-start-line="102" selection-start-column="2" selection-end-line="105" selection-end-column="17" />
+            <state vertical-scroll-proportion="-9.833333" vertical-offset="664" max-vertical-offset="1800">
+              <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myfuncs.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="myfuncs.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/myfuncs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="400" max-vertical-offset="1080">
-              <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.62941176" vertical-offset="892" max-vertical-offset="2250">
+              <caret line="90" column="17" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="17" />
               <folding>
                 <element signature="e#0#43#0" expanded="false" />
-                <element signature="e#1033#2684#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -56,20 +56,23 @@
       <file leaf-file-name="mychart.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/mychart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1050" max-vertical-offset="1950">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1105" max-vertical-offset="1950">
               <caret line="90" column="41" selection-start-line="90" selection-start-column="41" selection-end-line="90" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="d3map.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="d3map.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/d3map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2647059" vertical-offset="450" max-vertical-offset="6615">
-              <caret line="42" column="106" selection-start-line="42" selection-start-column="106" selection-end-line="42" selection-end-column="106" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1245" max-vertical-offset="3660">
+              <caret line="380" column="0" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <element signature="e#2359#3778#0" expanded="false" />
+                <element signature="e#4997#5012#0" expanded="false" />
+                <element signature="e#9039#9046#0" expanded="false" />
                 <element signature="n#!!block;n#drawUK#0" expanded="false" />
               </folding>
             </state>
@@ -79,8 +82,8 @@
       <file leaf-file-name="mycss.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/mycss.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.851851" vertical-offset="532" max-vertical-offset="2580">
-              <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
+            <state vertical-scroll-proportion="-19.185184" vertical-offset="1927" max-vertical-offset="2640">
+              <caret line="163" column="17" selection-start-line="163" selection-start-column="17" selection-end-line="163" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -89,8 +92,8 @@
       <file leaf-file-name="data.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="550" max-vertical-offset="1230">
-              <caret line="78" column="4" selection-start-line="78" selection-start-column="4" selection-end-line="78" selection-end-column="4" />
+            <state vertical-scroll-proportion="-19.185184" vertical-offset="577" max-vertical-offset="1230">
+              <caret line="75" column="20" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="20" />
               <folding>
                 <element signature="e#0#43#0" expanded="false" />
               </folding>
@@ -108,10 +111,10 @@
       <list>
         <option value="$PROJECT_DIR$/js/mychart.js" />
         <option value="$PROJECT_DIR$/js/data.js" />
-        <option value="$PROJECT_DIR$/css/mycss.css" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/myfuncs.js" />
         <option value="$PROJECT_DIR$/js/d3map.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/css/mycss.css" />
+        <option value="$PROJECT_DIR$/js/myfuncs.js" />
       </list>
     </option>
   </component>
@@ -342,7 +345,6 @@
           <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
           <folding>
             <element signature="e#0#43#0" expanded="false" />
-            <element signature="e#1033#2684#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -361,6 +363,9 @@
           <caret line="347" column="45" selection-start-line="347" selection-start-column="45" selection-end-line="347" selection-end-column="45" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#2359#3778#0" expanded="false" />
+            <element signature="e#4997#5012#0" expanded="false" />
+            <element signature="e#9039#9046#0" expanded="false" />
             <element signature="n#!!block;n#drawUK#0" expanded="false" />
           </folding>
         </state>
@@ -442,18 +447,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/mycss.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.851851" vertical-offset="532" max-vertical-offset="2580">
-          <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="550" max-vertical-offset="1230">
-          <caret line="78" column="4" selection-start-line="78" selection-start-column="4" selection-end-line="78" selection-end-column="4" />
+        <state vertical-scroll-proportion="-19.185184" vertical-offset="577" max-vertical-offset="1230">
+          <caret line="75" column="20" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="20" />
           <folding>
             <element signature="e#0#43#0" expanded="false" />
           </folding>
@@ -462,38 +459,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/mychart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1050" max-vertical-offset="1950">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1105" max-vertical-offset="1950">
           <caret line="90" column="41" selection-start-line="90" selection-start-column="41" selection-end-line="90" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/d3map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1245" max-vertical-offset="3660">
+          <caret line="380" column="0" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#2359#3778#0" expanded="false" />
+            <element signature="e#4997#5012#0" expanded="false" />
+            <element signature="e#9039#9046#0" expanded="false" />
+            <element signature="n#!!block;n#drawUK#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.833334" vertical-offset="1054" max-vertical-offset="1800">
-          <caret line="102" column="2" selection-start-line="102" selection-start-column="2" selection-end-line="105" selection-end-column="17" />
+        <state vertical-scroll-proportion="-9.833333" vertical-offset="664" max-vertical-offset="1800">
+          <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/mycss.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.185184" vertical-offset="1927" max-vertical-offset="2640">
+          <caret line="163" column="17" selection-start-line="163" selection-start-column="17" selection-end-line="163" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/myfuncs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="400" max-vertical-offset="1080">
-          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.62941176" vertical-offset="892" max-vertical-offset="2250">
+          <caret line="90" column="17" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="17" />
           <folding>
             <element signature="e#0#43#0" expanded="false" />
-            <element signature="e#1033#2684#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/d3map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2647059" vertical-offset="450" max-vertical-offset="6615">
-          <caret line="42" column="106" selection-start-line="42" selection-start-column="106" selection-end-line="42" selection-end-column="106" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="n#!!block;n#drawUK#0" expanded="false" />
           </folding>
         </state>
       </provider>

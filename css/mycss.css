@@ -1,6 +1,6 @@
 
 #main-container {
-    border: 1px solid #cccccc;
+    /*border: 1px solid #cccccc;*/
     margin-top: 5px;
     margin-left: 5px;
     width: 1124px;
@@ -11,7 +11,7 @@
 }
 
 #map {
-    border: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
     display: inline;
     float: left;
     width: 400px;
@@ -158,6 +158,10 @@
 #dropdownMenu1 {
     width: 100%;
     text-align: right;
+}
+
+#imgtr {
+    height: 210px;
 }
 
 /*#chart-area {*/

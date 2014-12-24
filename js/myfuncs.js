@@ -25,20 +25,36 @@ var hideAll = function() {
     }
 };
 
+
+var work = function(func) {
+    func();
+    //alert(func);
+    globaldata.activefunc = func;
+}
+
 //查看投票结果
-var voteResult = function () {
-    if ($("#voteResult").attr("class") == "active") return;
+var voteResult = function (arg) {
+    if ($("#voteResult").attr("class") == "active" && !arg) return;
     clearActive();
     $("#voteResult").attr("class", "active");
     hideAll();
     $("#chart-container").css("display", "block");
-    showPieChart("chart-container", globaldata.pieData1);
 
+    var tmpData = {};
+    tmpData.title = globaldata.province + "投票情况";
+    tmpData.data = [{value: globaldata.support,  name:"支持独立"},
+        {value:1 - globaldata.support,name:"反对独立"}];
+    globaldata.pieData1 = tmpData;
+    //globaldata.province = data[i][0];
+    //globaldata.support = data[i][2];
+
+
+    showPieChart("chart-container", globaldata.pieData1);
 };
 
 //查看投票详情
-var voteInfo = function () {
-    if ($("#voteInfo").attr("class") == "active") return;
+var voteInfo = function (arg) {
+    if ($("#voteInfo").attr("class") == "active" && !arg) return;
     clearActive();
     $("#voteInfo").attr("class", "active");
     hideAll();
@@ -66,10 +82,27 @@ var voteInfo = function () {
         h1 = h2 * tmp0;
         w1 = w2 * tmp0;
     }
-    $("#invalidimg").css("width", w2+"px")
-        .css("height", h2+"px");
-    $("#validimg").css("width", w1+"px")
-        .css("height", h1+"px");
+
+    $("#invalidimg").css("width", "0px")
+        .css("height", "0px");
+    $("#validimg").css("width", "0px")
+        .css("height", "0px");
+
+    var speed = 500;
+    $("#invalidimg").animate({
+        "width": w2+"px",
+        "height": h2+"px"
+    }, speed);
+
+    $("#validimg").animate({
+        "width": w1+"px",
+        "height": h1+"px"
+    }, speed);
+
+    //$("#invalidimg").css("width", w2+"px")
+    //    .css("height", h2+"px");
+    //$("#validimg").css("width", w1+"px")
+    //    .css("height", h1+"px");
     //alert(hh);
     var support = Math.round(tmp1 * globaldata.support);
     var unsupport = tmp1 - support;
@@ -85,8 +118,8 @@ var voteInfo = function () {
 };
 
 //查看人口分布
-var populationInfo = function() {
-    if ($("#populationInfo").attr("class") == "active") return;
+var populationInfo = function(arg) {
+    if ($("#populationInfo").attr("class") == "active" && !arg) return;
     clearActive();
     $("#populationInfo").attr("class", "active");
     hideAll();

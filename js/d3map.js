@@ -3,7 +3,9 @@
 
 var globaldata = {
     map:{},
-    color:{}
+    color:{},
+    activefunc : voteResult,
+    supports:{}
 };
 
 
@@ -45,6 +47,9 @@ var selectProvince = function(name) {
     d3.select(globaldata.map[name]).attr("stroke", "#ffffff").attr("stroke-width", 1);
     //d3.select(globaldata.map[name]).attr("fill", "#000000");
     globaldata.province = name;
+    globaldata.support = globaldata.supports[name];
+
+    globaldata.activefunc(true);
 };
 
 var insertColorLabel = function(container) {
@@ -103,9 +108,6 @@ var insertColorLabel = function(container) {
 
         })
 };
-
-
-
 
 
 var umap = []
@@ -325,6 +327,10 @@ function drawProvinces(error, cn) {
      };
 	// alert(codes[0].properties.NAME_2);
     // console.log(codes);
+
+    for (var i = 0; i < data.length; i++)
+    globaldata.supports[data[i][0]] = data[i][2];
+
 	subunits = codes;
     svg.append("g")
         .attr("class", "map")
@@ -360,17 +366,18 @@ function drawProvinces(error, cn) {
 
         })
         .on("click", function (d, i) {
-            var tmpData = {};
-            tmpData.title = data[i][0] + "投票情况";
-            tmpData.data = [{value: data[i][2],  name:"支持独立"},
-                {value:1 - data[i][2],name:"反对独立"}];
+            //var tmpData = {};
+            //tmpData.title = data[i][0] + "投票情况";
+            //tmpData.data = [{value: data[i][2],  name:"支持独立"},
+            //    {value:1 - data[i][2],name:"反对独立"}];
+            //globaldata.support = data[i][2];
             selectProvince(data[i][0]);
-            globaldata.pieData1 = tmpData;
-            globaldata.province = data[i][0];
-            globaldata.support = data[i][2];
+            //globaldata.pieData1 = tmpData;
+            //globaldata.province = data[i][0];
+            //globaldata.support = data[i][2];
 
-            voteResult();
-            showPieChart("chart-container", tmpData);
+            //voteResult();
+            //showPieChart("chart-container", tmpData);
 
             //d3.select(this).attr("fill", colors[0]);
             //svg.transition()
@@ -381,9 +388,6 @@ function drawProvinces(error, cn) {
             //alert(data[i][2]);
         });
 
-    //alert(globaldata.map[data[0][0]]);
-    console.log(data[0][0]);
-    //alert(data[0][0]);
 }
 
 // Mainland provinces
