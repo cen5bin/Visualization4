@@ -28,7 +28,8 @@
 
         </div>
         <div id="graphs">
-            <ul class="nav nav-pills center-component" id="graph-nav" role="tablist">
+            <div id="graph-topbar">
+            <ul class="nav nav-pills" id="graph-nav" role="tablist">
                 <li role="presentation" class="active"  id="voteResult"><a href="#">投票结果</a></li>
                 <li role="presentation" class="none"  id="voteInfo"><a href="#">投票详情</a></li>
                 <li role="presentation" class="none"  id="populationInfo"><a href="#">人口分布</a></li>
@@ -36,6 +37,22 @@
                 <!--<li role="presentation" class="none"  id="voteResul"><a href="#">Messages</a></li>-->
             </ul>
 
+
+                <div class="dropdown" id="province-chooser">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                        选择地区
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="dropdown-menu">
+                        <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>-->
+                        <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>-->
+                        <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>-->
+                        <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>-->
+                    </ul>
+                </div>
+
+
+            </div>
             <div id="chart-container">
                 <!--<canvas id="chart-area" width="400" height="400"/>-->
             </div>
@@ -77,6 +94,19 @@
             }
             insertColorLabel("color-label-bar");
 
+            for (var i = 0; i < provinceData.length; i++)
+            $("<li role='presentation'><a role='menuitem' tabindex='"+i+"' href='#'>"+provinceData[i]+"</a></li>")
+                    .appendTo("#dropdown-menu").attr("onclick", "selectProvince('"+provinceData[i]+"')");
+
+
+
+//
+//                    click(function(){
+//                selectProvince(this.innerText);
+//            });
+
+//            $("#dropdownMenu1").text("aaaaaaaaaaaaaaaaaaaaaa");
+//            $("<span class='caret'></span>").appendTo("#dropdownMenu1");
         });
 
     </script>

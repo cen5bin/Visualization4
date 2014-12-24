@@ -110,3 +110,4 @@ var populationInfo = function() {
     globaldata.pieData2 = tmpData;
     showPieChart1("chart-container2", globaldata.pieData2);
 };
+

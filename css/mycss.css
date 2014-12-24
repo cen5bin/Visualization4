@@ -35,6 +35,22 @@
 }
 
 #graph-nav {
+    width: 70%;
+    display: inline;
+    float: left;
+}
+
+#province-chooser {
+    /*width: 25%;*/
+    max-width: 30%;
+    /*min-width: 30%;*/
+    /*fixed-width:30%;*/
+    /*width: 30%;*/
+    display: inline;
+    float: right;
+}
+
+#graph-nav, #province-chooser {
     margin-top: 10px;
 }
 
@@ -46,7 +62,7 @@
     width: 600px;
     height: 500px;
 }
-#chart-container1 {
+#chart-container1 , #chart-container2{
     display: none;
 }
 
@@ -122,6 +138,26 @@
     color: #ffffff;
     padding-top: 10px;
     /*margin-top: 10%;*/
+}
+
+#graph-topbar {
+    /*background-color: #357ebd;*/
+    width: 90%;
+    margin: auto;
+    padding-bottom: 5px;
+    border-bottom: solid 1px #dddddd;
+    height: 60px;
+}
+
+#dropdown-menu {
+    overflow: scroll;
+    max-height: 200px;
+
+}
+
+#dropdownMenu1 {
+    width: 100%;
+    text-align: right;
 }
 
 /*#chart-area {*/

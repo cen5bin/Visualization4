@@ -71,3 +71,9 @@ var populationInfoData = {
     {"Comunity":"Glasgow",	"Scottish":"79.0",	"British":"2.0",	"Irish":"1.0",	"CypsyCypsy":"1.0",	"polish":"2.0",	"mixed":"0.5",	"Asian":"6.0",	"African":"2.0",	"Arab":"0.1",	"Other":"0.0"}
 ]
 }
+
+
+var provinceData = ["Local authority","Orkney Islands","Shetland Islands","Eilean Siar","Clackmannanshire","East Renfrewshire",
+    "Stirling","Argyll and Bute","Midlothian","Moray","Inverclyde","East Lothian","Scottish Borders","East Dunbartonshire",
+    "West Dunbartonshire","South Ayrshire","Angus","Dumfries and Galloway","East Ayrshire","Perthshire and Kinross","North Ayshire",
+    "Falkirk","West Lothian","Dundee","Renfrewshire","Aberdeen","Aberdeenshire","Highland","South Lanarkshire","Fife","North Lanarkshire","Edinburgh","Glasgow"];
