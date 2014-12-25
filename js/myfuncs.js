@@ -115,6 +115,11 @@ var voteInfo = function (arg) {
     //$("#validimg").css("width", w1+"px")
     //    .css("height", h1+"px");
     //alert(hh);
+
+    $("#chart-container1-title").text(globaldata.province+"投票详情")
+        .css("font-size","18px")
+        .css("font-weight", 500);
+
     var support = Math.round(tmp1 * globaldata.support);
     var unsupport = tmp1 - support;
     var all = 100;
@@ -123,8 +128,8 @@ var voteInfo = function (arg) {
     //$("#vote-bar").removeNode("div");
     $("#vote-bar div").remove();
     //alert($("#vote-bar div").htmlText);
-    $("<div>支持独立 "+ support+" 票</div>").appendTo("#vote-bar").css("width", width1).css("background-color", "red");
-    $("<div>反对独立 "+ unsupport+" 票</div>").appendTo("#vote-bar").css("width", width2).css("background-color", "blue");
+    $("<div>支持独立 "+ support+" 票</div>").appendTo("#vote-bar").css("width", width1).css("background-color", "rgb(0,0,204)");
+    $("<div>反对独立 "+ unsupport+" 票</div>").appendTo("#vote-bar").css("width", width2).css("background-color", "rgb(255,37,49)");
 
     $("#vote-bar").animate({width:"-=150px"}, speed/3)
         .animate({width:"+=300px"}, speed/3)

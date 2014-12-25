@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fae67c5-7345-456c-91b1-392683894703" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/d3map.js" afterPath="$PROJECT_DIR$/js/d3map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/data.js" afterPath="$PROJECT_DIR$/js/data.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/myfuncs.js" afterPath="$PROJECT_DIR$/js/myfuncs.js" />
     </list>
     <ignored path="Visualization4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,23 +30,21 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="17.666666" vertical-offset="844" max-vertical-offset="1500">
-              <caret line="28" column="22" selection-start-line="26" selection-start-column="11" selection-end-line="28" selection-end-column="22" />
+            <state vertical-scroll-proportion="-15.583333" vertical-offset="376" max-vertical-offset="1725">
+              <caret line="61" column="23" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="45" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <marker date="1419507960000" expanded="true" signature="1176:1203" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myfuncs.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="myfuncs.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/myfuncs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2200" max-vertical-offset="2880">
-              <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.29411766" vertical-offset="1555" max-vertical-offset="2955">
+              <caret line="119" column="28" selection-start-line="119" selection-start-column="28" selection-end-line="119" selection-end-column="28" />
               <folding>
                 <element signature="e#0#43#0" expanded="false" />
               </folding>
@@ -64,10 +62,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="d3map.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="d3map.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/d3map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6784074" vertical-offset="2227" max-vertical-offset="5880">
+            <state vertical-scroll-proportion="25.814816" vertical-offset="3367" max-vertical-offset="5880">
               <caret line="178" column="31" selection-start-line="178" selection-start-column="31" selection-end-line="178" selection-end-column="31" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -117,10 +115,10 @@
         <option value="$PROJECT_DIR$/js/topojson.js" />
         <option value="$PROJECT_DIR$/js/mychart.js" />
         <option value="$PROJECT_DIR$/css/mycss.css" />
-        <option value="$PROJECT_DIR$/js/myfuncs.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/data.js" />
         <option value="$PROJECT_DIR$/js/d3map.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/myfuncs.js" />
       </list>
     </option>
   </component>
@@ -338,9 +336,7 @@
           <caret line="39" column="66" selection-start-line="39" selection-start-column="66" selection-end-line="39" selection-end-column="66" />
           <folding>
             <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1419507960000" expanded="true" signature="1176:1203" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -484,29 +480,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/myfuncs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2200" max-vertical-offset="2880">
-          <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="17.666666" vertical-offset="844" max-vertical-offset="1500">
-          <caret line="28" column="22" selection-start-line="26" selection-start-column="11" selection-end-line="28" selection-end-column="22" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1419507960000" expanded="true" signature="1176:1203" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/mychart.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1255" max-vertical-offset="2895">
@@ -535,7 +508,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/d3map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6784074" vertical-offset="2227" max-vertical-offset="5880">
+        <state vertical-scroll-proportion="25.814816" vertical-offset="3367" max-vertical-offset="5880">
           <caret line="178" column="31" selection-start-line="178" selection-start-column="31" selection-end-line="178" selection-end-column="31" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -546,6 +519,27 @@
             <element signature="n#!!block;n#transition#0" expanded="false" />
             <element signature="e#17290#18135#0" expanded="false" />
             <element signature="e#18172#18400#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.583333" vertical-offset="376" max-vertical-offset="1725">
+          <caret line="61" column="23" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="45" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/myfuncs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29411766" vertical-offset="1555" max-vertical-offset="2955">
+          <caret line="119" column="28" selection-start-line="119" selection-start-column="28" selection-end-line="119" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
           </folding>
         </state>
       </provider>
