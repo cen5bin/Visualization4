@@ -11,8 +11,10 @@
     <script src="js/d3.min.js"></script>
     <!--<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
     <!--<script src="http://d3js.org/d3.v3.min.js"></script>-->
-    <script src="http://d3js.org/queue.v1.min.js"></script>
-    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <!--<script src="http://d3js.org/queue.v1.min.js"></script>-->
+    <script src="js/queue.js"></script>
+    <script src="js/topojson.js"></script>
+    <!--<script src="http://d3js.org/topojson.v1.min.js"></script>-->
     <!--<script src="js/Chart.js"></script>-->
     <script src="js/echarts-all.js"></script>
     <link rel="stylesheet" href="css/mycss.css">
@@ -33,7 +35,7 @@
                 <li role="presentation" class="active"  id="voteResult"><a href="#">投票结果</a></li>
                 <li role="presentation" class="none"  id="voteInfo"><a href="#">投票详情</a></li>
                 <li role="presentation" class="none"  id="populationInfo"><a href="#">人口分布</a></li>
-
+                <li role="presentation" class="none"  id="partyInfo"><a href="#">政党信息</a></li>
                 <!--<li role="presentation" class="none"  id="voteResul"><a href="#">Messages</a></li>-->
             </ul>
 
@@ -74,6 +76,10 @@
             <div id="chart-container2">
                 <!--<canvas id="chart-area" width="400" height="400"/>-->
             </div>
+
+            <div id="chart-container3">
+
+            </div>
         </div>
     </div>
 
@@ -87,12 +93,13 @@
 
         $(document).ready(function () {
 
-
+            prepareData();
             for (var i = 0; i < ids.length; i++) {
                 var id = "#" + ids[i];
                 $(id).attr("onclick", "work("+ids[i]+")");
             }
             insertColorLabel("color-label-bar");
+//            insertTabBar();
 
             for (var i = 0; i < provinceData.length; i++)
             $("<li role='presentation'><a role='menuitem' tabindex='"+i+"' href='#'>"+provinceData[i]+"</a></li>")

@@ -9,7 +9,7 @@ var globaldata = {
 };
 
 
-var width = 500, height = 650;
+var width = 500, height = 630;
 var data=[["Aberdeen",12,0.414],["Aberdeenshire",9,0.396],
     ["Angus",16,0.437],["Argyll and Bute",13,0.415],["Clackmannanshire",21,0.462],
     ["Dumfries and Galloway",3,0.343],["Dundee",32,0.573],["East Ayrshire",25,0.472],

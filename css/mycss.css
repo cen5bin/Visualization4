@@ -1,13 +1,17 @@
 
+body {
+    background-color: #222222;
+}
+
 #main-container {
-    /*border: 1px solid #cccccc;*/
+    border: 2px solid #cccccc;
     margin-top: 5px;
     margin-left: 5px;
     width: 1124px;
     height: 650px;
     margin-left: auto;
     margin-right: auto;
-    /*background-color: red;*/
+    background-color: #ffffff;
 }
 
 #map {
@@ -54,7 +58,7 @@
     margin-top: 10px;
 }
 
-#chart-container, #chart-container1 , #chart-container2 {
+#chart-container, #chart-container1 , #chart-container2 , #chart-container3{
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
@@ -62,7 +66,9 @@
     width: 600px;
     height: 500px;
 }
-#chart-container1 , #chart-container2{
+
+
+#chart-container1 , #chart-container2, #chart-container3{
     display: none;
 }
 

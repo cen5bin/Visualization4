@@ -1,8 +1,8 @@
 /**
  * Created by wubincen on 14/12/21.
  */
-var ids = ["voteResult", "voteInfo", "populationInfo"];
-var chartContainers = ["chart-container", "chart-container1", "chart-container2"];
+var ids = ["voteResult", "voteInfo", "populationInfo", "partyInfo"];
+var chartContainers = ["chart-container", "chart-container1", "chart-container2", "chart-container3"];
 var clearActive = function () {
     for (var i = 0; i < ids.length; i++) {
         var id = "#" + ids[i];
@@ -126,9 +126,9 @@ var voteInfo = function (arg) {
     $("<div>支持独立 "+ support+" 票</div>").appendTo("#vote-bar").css("width", width1).css("background-color", "red");
     $("<div>反对独立 "+ unsupport+" 票</div>").appendTo("#vote-bar").css("width", width2).css("background-color", "blue");
 
-    $("#vote-bar").animate({width:"-=100px"}, speed/3)
-        .animate({width:"+=200px"}, speed/3)
-        .animate({width:"-=100px"}, speed/3);
+    $("#vote-bar").animate({width:"-=150px"}, speed/3)
+        .animate({width:"+=300px"}, speed/3)
+        .animate({width:"-=150px"}, speed/3);
 
 };
 
@@ -159,3 +159,59 @@ var populationInfo = function(arg) {
     showPieChart1("chart-container2", globaldata.pieData2);
 };
 
+var partyInfo = function (arg) {
+    if ($("#partyInfo").attr("class") == "active" && !arg) return;
+    clearActive();
+    $("#partyInfo").attr("class", "active");
+    hideAll();
+    $("#chart-container3").css("display", "block");
+
+    var tmpData = {};
+    tmpData.title = globaldata.province + "政党支持率情况";
+    tmpData.data = globaldata.partyData[globaldata.province];
+    globaldata.barData  = tmpData;
+    showBarChart("chart-container3", tmpData);
+}
+
+var prepareData = function() {
+    globaldata.partyData = {};
+    for (var i = 0; i < partyData.length; i++) {
+        if (!globaldata.partyData[partyData[i][1]])
+            globaldata.partyData[partyData[i][1]] = [];
+        var tmp = [];
+        for (var j = 0; j < 8; j++)
+        if (j != 1)
+        tmp.push(partyData[i][j]);
+        globaldata.partyData[partyData[i][1]].push(tmp);
+    }
+};
+
+var insertTabBar = function () {
+    $("<div>^</div>").appendTo("#map")
+        .attr("id", "map-tool-bar0")
+        .css("height", "20px")
+        .css("background-color", "#cccccc")
+        .css("text-align", "center")
+        .css("color", "white")
+        .css("position", "relative")
+        .css("width", $("#map").css("width"))
+        //.css("bottom", $("#map").css("bottom"))
+        .click(function(){
+            //this.append("<div></div>")
+            $("#map-tool-bar0").animate({
+                    bottom:"+=25px",
+                    opacity:'0'
+                }
+            ,100, function(){
+                    $("map-tool-bar").css("display", "block");
+                });
+
+        });
+    $("<div>aaa</div>").appendTo("#map")
+        .attr("id", "map-tool-bar")
+        .css("height", "40px")
+        .css("background-color", "#dddddd")
+        .css("position", "absolute")
+        //.css("bottom","25px")
+        .css("display", "none");
+};

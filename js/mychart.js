@@ -116,10 +116,73 @@ var showPieChart1 = function(container, data) {
             }
         ]
     };
+    myChart.setOption(option);
 
+}
 
+var showBarChart = function(container, data) {
+    var myChart = echarts.init(document.getElementById(container));
+    var tmp0 = [];
+    for (var i = 0; i < data.data.length; i++)
+    tmp0.push(data.data[i][0]);
 
+    var tmp2 = [];
+    var datas = [];
+    for (var j = 0; j < parties.length; j++) {
+        var tmp1 = {};
+        tmp1["name"] = parties[j];
+        tmp2.push(parties[j]);
+        tmp1["type"] = "bar";
+        tmp1.data = [];
+        for (var i = 0; i < data.data.length; i++) {
+            tmp1.data.push(data.data[i][2+j]);
+        }
+        datas.push(tmp1);
+    }
 
+    var option = {
+        title : {
+            text: data.title,
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        legend: {
+            data:tmp2,
+            x : 'center',
+            y : 'bottom'
+        },
+        toolbox: {
+            show : true,
+            orient: 'vertical',
+            x: 'right',
+            y: 'center',
+            feature : {
+                //mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {show: true, type: [  'stack', 'tiled']},
+                //restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                data : tmp0
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value'
+            }
+        ],
+        series : datas
+    };
     myChart.setOption(option);
 
 }
