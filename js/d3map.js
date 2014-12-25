@@ -41,11 +41,12 @@ var selectProvince = function(name) {
     $("#dropdownMenu1").text(name);
     $("<span class='caret'></span>").appendTo("#dropdownMenu1");
 
-    if (globaldata.province)
-        d3.select(globaldata.map[globaldata.province]).attr("stroke", "#000000").attr("stroke-width", 0.35);
-        //d3.select(globaldata.map[globaldata.province]).attr("fill", globaldata.color[globaldata.province]);
-    d3.select(globaldata.map[name]).attr("stroke", "#ffffff").attr("stroke-width", 1);
-    //d3.select(globaldata.map[name]).attr("fill", "#000000");
+    if (globaldata.province) {
+        //d3.select(globaldata.map[globaldata.province]).attr("stroke", "#000000").attr("stroke-width", 0.35);
+        d3.select(globaldata.map[globaldata.province]).attr("fill", globaldata.color[globaldata.province]);
+    }
+    //d3.select(globaldata.map[name]).attr("stroke", "#ffffff").attr("stroke-width", 1);
+    d3.select(globaldata.map[name]).attr("fill", "#0000cc");
     globaldata.province = name;
     globaldata.support = globaldata.supports[name];
 
@@ -111,6 +112,81 @@ var insertColorLabel = function(container) {
         })
 };
 
+
+var insertColorLabel1 = function(container) {
+
+    $("<div></div>").appendTo("#map").attr("id", container)
+        .css("width", "200px")
+        .css("height", "200px")
+        .css("margin-top", "10px")
+        .css("margin-left", "10px");
+        //.css("background", "black");
+
+    $("#"+container).insertBefore($("#map svg"));
+    //return;
+    //var colors1 = [colors.slice(0, 4), colors.slice(5,9)];
+    //var data0 = ["45%", "50%", "55%", "60%", "65%"];
+
+
+
+    d3.select("#"+container)
+        .append("div")
+        .style("display", "inline")
+        .style("float", "left")
+        .style("width", "25px")
+        .style("height", "200px")
+
+        //.append("div")
+        //.style("display", "inline")
+        //.append("div")
+        //.style("margin-left", "5px")
+        .selectAll("div")
+        .data(partyWinner1)
+        .enter()
+        .append("div")
+        //.attr("class","color-label-bar-node")
+        //.append("div")
+        //.attr("class", "color-label")
+        .style("background-color", function(d, i){
+            return partyWinnerColors[partyWinner1[i]];
+        })
+        .style("height", "25px");
+    //.text(function(d, i){return i;});
+
+
+    d3.select("#"+container)
+        .append("div")
+        .style("display", "inline")
+        .style("float", "left")
+        .style("width", "150px")
+        .style("height", "100%")
+        .style("margin-left","5px")
+        //.attr("class","color-label-bar-node1")
+        //.text("支持独立：")
+        //.append("div")
+        //.style("margin-left", "27px")
+        .selectAll("div")
+        .data(partyWinner1)
+        .enter()
+        .append("div")
+        //.style("margin-left", function (d, i) {
+        //    if (i == 0) return "0px";
+        //    return "10px";
+        //})
+        .style("font-size", "8px")
+        .style("font-weight", 300)
+        .style("margin-top","2px")
+        .style("color", function(d, i){
+            //if (i % 2) return "#ffffff";
+            return "#aaaaaa";
+        })
+        .text(function (d, i) {
+            //if (i % 2) return "aaa";
+            return partyWinner1[i];
+
+        })
+        .style("height", "25px");
+};
 
 var umap = []
 data.map(function(d) {umap[d[0]]=Number(d[1])});
@@ -317,6 +393,11 @@ function drawMap(error,scotland,uk) {
 	drawUK(error,uk);
 }
 
+function drawMap1(error,scotland,uk) {
+    drawProvinces1(error,scotland);
+    drawUK(error,uk);
+}
+
 
 // Mainland provinces
 function drawProvinces(error, cn) {
@@ -391,6 +472,49 @@ function drawProvinces(error, cn) {
         });
 
 }
+
+function drawProvinces1(error, cn) {
+    var subunits = topojson.feature(cn, cn.objects.GBR).features;
+    var codes=[];
+    for (var i = 0; i < subunits.length; i++) {
+        if( subunits[i].properties.ID_1 == 3 )
+            codes[ codes.length ] = subunits[i];
+
+    };
+    // alert(codes[0].properties.NAME_2);
+    // console.log(codes);
+
+    for (var i = 0; i < data.length; i++)
+        globaldata.supports[data[i][0]] = data[i][2];
+
+    subunits = codes;
+    svg.append("g")
+        .attr("class", "map")
+        .append("g")
+        .attr("class", "mainland")
+        .selectAll("path")
+        .data(subunits)
+        .enter()
+        .append("path")
+        .attr("d", path)
+        .attr("id", function(d) { return d.properties.ID_2; })
+        .attr("class", "province")
+        .attr("fill", "#ffffff")
+        .attr("fill", function(d, i){
+            globaldata.map[data[i][0]] = this;
+            globaldata.color[data[i][0]] =  partyWinnerColors[partyWinner[data[i][0]]]; //   getColor(data[i][2]);
+            return globaldata.color[data[i][0]];
+            //if (i == 0) alert(globaldata.map[data[i][0]]);
+            //return getColor(data[i][2]);
+        })
+        .attr("stroke", "black")
+        .attr("stroke-width", "0.35")
+        .on("click", function (d, i) {
+            selectProvince(data[i][0]);
+        });
+
+}
+
 
 // Mainland provinces
 function drawUK(error, uk) {
@@ -511,7 +635,13 @@ var drawOilMap = function(){
 };
 
 var drawPartiesMap = function() {
-
+    clearSVG();
+    insertColorLabel1("color-label-bar");
+    queue()
+        .defer(d3.json, "data/GBR.json")
+        .defer(d3.json, "data/uk.json")
+        .await(drawMap1); // function that uses files
+    insertTabBar();
 };
 
 var insertTabBar = function () {

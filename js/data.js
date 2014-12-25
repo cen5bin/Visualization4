@@ -116,4 +116,22 @@ var partyData = [["Aberdeen Central","Aberdeen","SNP",3100,9441,2349,10058,201],
     ["Dumbarton","West Dunbartonshire","Lab",3395,12562,858,10923,770],["Almond Valley","West Lothian","SNP",1886,11162,656,16704,329],
     ["Linlithgow","West Lothian","SNP",2646,12936,1015,17027,558]];
 
-var parties = ["C", "Lab", "LD", "SNP", "Other"];
+var parties = ["Conservative", "Labour", "Liberal Democrats", "SNP", "Other"];
+
+var partyWinner = {"Aberdeen":"SNP","Aberdeenshire":"SNP","Angus":"SNP","Argyll and Bute":"SNP",
+    "Clackmannanshire":"SNP","Dumfries and Galloway":"Labour","Dundee":"SNP","East Ayrshire":"SNP",
+    "East Dunbartonshire":"SNP","East Lothian":"Labour","East Renfrewshire":"Labour","Edinburgh":"SNP",
+    "Eilean Siar":"SNP","Falkirk":"SNP","Fife":"SNP","Glasgow":"SNP","Highland":"SNP","Inverclyde":"Labour",
+    "Midlothian":"SNP","Moray":"SNP","North Ayshire":"SNP","North Lanarkshire":"Labour",
+    "Orkney Islands":"Liberal Democrats","Perthshire and Kinross":"SNP","Renfrewshire":"SNP",
+    "Scottish Borders":"Conservative","Shetland Islands":"Liberal Democrats","South Ayrshire":"Conservative",
+    "South Lanarkshire":"SNP","Stirling":"SNP","West Dunbartonshire":"Labour","West Lothian":"SNP"};
+
+var partyWinnerColors = {
+    "Conservative":"rgb(0,136,214)",
+    "Labour":"rgb(225,31,39)",
+    "Liberal Democrats":"rgb(253,161,56)",
+    "SNP":"rgb(254,254,83)"
+};
+
+var partyWinner1 = ["Conservative", "Labour", "Liberal Democrats", "SNP"];
