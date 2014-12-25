@@ -204,6 +204,7 @@ var c2 = "#0fea00";
 queue()
     .defer(d3.json, "data/GBR.json")
 	.defer(d3.json, "data/uk.json")
+    //.defer(d3.json, "data/oilwell2.json")
     .await(drawMap); // function that uses files
 
 // DRAW 
@@ -388,14 +389,21 @@ var color = function(i){
 //    drawHkMacau(error,hkmacau);
 //}
 
-function drawMap(error,scotland,uk) {
+function drawMap(error,scotland,uk,oil) {
     drawProvinces(error,scotland);
-	drawUK(error,uk);
+	//drawUK(error,uk);
+    drawOilWell(error,oil);
 }
 
 function drawMap1(error,scotland,uk) {
     drawProvinces1(error,scotland);
+    //drawUK(error,uk);
+}
+
+function drawMap2(error,scotland,uk,oil) {
+    drawProvinces(error,scotland);
     drawUK(error,uk);
+    drawOilWell(error,oil);
 }
 
 
@@ -471,6 +479,9 @@ function drawProvinces(error, cn) {
             //alert(data[i][2]);
         });
 
+
+
+
 }
 
 function drawProvinces1(error, cn) {
@@ -518,7 +529,7 @@ function drawProvinces1(error, cn) {
 
 // Mainland provinces
 function drawUK(error, uk) {
-    return;
+    //return;
     var subunits = topojson.feature(uk, uk.objects.subunits).features;
   
 	svg.select(".map")
@@ -534,7 +545,25 @@ function drawUK(error, uk) {
         .attr("stroke-width", "0.35");
 }
 // TODO : Haiwai
-
+function drawOilWell(error,oil){
+    var subunits = topojson.feature(oil, oil.objects.oilwell2).features;
+    svg.select(".map")
+        .append('g')
+        .attr("class", "oil")
+        .selectAll("path")
+        .data(subunits)
+        .enter()
+        .append("path")
+        .attr("d", path)
+        .attr("fill", function(d){
+            if(d.properties.TYPE=="OIL")
+                return "red";
+            else return "green";
+        })
+        .attr("stroke", "white")
+        .attr("stroke-width", "0.35")
+        //.on("click",function(d){ console.log(d);});
+}
 
 function wrap(text, width) {
   text.each(function() {
@@ -580,12 +609,12 @@ function transition(svg, start, end) {
 }
 
 
-var clearSVG = function () {
+var clearSVG = function (arg) {
     //alert($("#map svg"));
     $("#map svg").remove();
     $("#map div").remove();
 
-
+    if (arg) return;
 
     projection = d3.geo.albers()
         .center([3, 58])
@@ -614,12 +643,19 @@ var clearSVG = function () {
     color = function(i){
         if (i==undefined) {return "#cccccc"}
         else return colorScale(i)
-    }
+    };
 
+};
+
+var recoverGraphs = function () {
+    $("#map").css("width", "400px");
+    $("#graphs").css("display", "block");
+    $("#map").css("background-color", "white");
 };
 
 var drawVoteResultMap = function(){
     clearSVG();
+    recoverGraphs();
     insertColorLabel("color-label-bar");
     queue()
         .defer(d3.json, "data/GBR.json")
@@ -631,11 +667,55 @@ var drawVoteResultMap = function(){
 };
 
 var drawOilMap = function(){
+    clearSVG(true);
 
+    var width = 1000, height = 930;
+
+    $("#map").css("width", "100%");
+    $("#graphs").css("display", "none");
+    projection = d3.geo.albers()
+        .center([2, 55])
+        .rotate([6, 0])
+        .parallels([45, 60])
+        .scale(600 * 9)
+        .translate([width /2, height / 2]);
+
+    svg = d3.select("#map").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .attr("preserveAspectRatio", "xMidYMid")
+        .attr("viewBox", "0 0 " + width + " " + height);
+
+    path = d3.geo.path()
+        .projection(projection);
+
+// COLORS
+// define color scale
+    colorScale = d3.scale.linear()
+        .domain(d3.extent(s))
+        .interpolate(d3.interpolateHcl)
+        .range([c1,c2]);
+
+// add grey color if no values
+    color = function(i){
+        if (i==undefined) {return "#cccccc"}
+        else return colorScale(i)
+    };
+
+
+    queue()
+        .defer(d3.json, "data/GBR.json")
+        .defer(d3.json, "data/uk.json")
+        .defer(d3.json, "data/oilwell2.json")
+        .await(drawMap2); // function that uses files
+
+    $("#map").css("background-color", "rgb(166,195,221)");
+    insertTabBar(700);
 };
 
 var drawPartiesMap = function() {
     clearSVG();
+    recoverGraphs();
     insertColorLabel1("color-label-bar");
     queue()
         .defer(d3.json, "data/GBR.json")
@@ -644,14 +724,17 @@ var drawPartiesMap = function() {
     insertTabBar();
 };
 
-var insertTabBar = function () {
+var insertTabBar = function (arg) {
+    var tmp = 0;
+    if (arg) tmp = arg;
     $("<div></div>").appendTo("#map")
         .attr("id", "map-tool-bar")
         .css("height", "70px")
         //.css("background-color", "#dddddd")
         .css("position", "absolute")
         .css("bottom","30px")
-        .css("left", "410px")
+        //.css("right","20px")
+        .css("left", (410+tmp)+"px")
         .css("width", "60px")
         .attr("class", "btn-group-vertical btn-group-xs");
 
