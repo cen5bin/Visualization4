@@ -401,14 +401,14 @@ function drawMap1(error,scotland,uk) {
 }
 
 function drawMap2(error,scotland,uk,oil) {
-    drawProvinces(error,scotland);
+    drawProvinces(error,scotland, true);
     drawUK(error,uk);
     drawOilWell(error,oil);
 }
 
 
 // Mainland provinces
-function drawProvinces(error, cn) {
+function drawProvinces(error, cn, arg) {
     var subunits = topojson.feature(cn, cn.objects.GBR).features;
     var codes=[];
     for (var i = 0; i < subunits.length; i++) {
@@ -436,6 +436,7 @@ function drawProvinces(error, cn) {
         .attr("class", "province")
         .attr("fill", "#ffffff")
         .attr("fill", function(d, i){
+            if (arg) return "rgb(254,254,83)";
             globaldata.map[data[i][0]] = this;
             globaldata.color[data[i][0]] = getColor(data[i][2]);
             return globaldata.color[data[i][0]];
@@ -648,9 +649,15 @@ var clearSVG = function (arg) {
 };
 
 var recoverGraphs = function () {
-    $("#map").css("width", "400px");
-    $("#graphs").css("display", "block");
-    $("#map").css("background-color", "white");
+    $("#map").animate({
+        width:"400px"
+    }, 500, function(){
+        $("#graphs").css("display", "block");
+        $("#map").css("background-color", "white");
+    });
+    //$("#map").css("width", "400px");
+    //$("#graphs").css("display", "block");
+    //$("#map").css("background-color", "white");
 };
 
 var drawVoteResultMap = function(){
@@ -666,15 +673,104 @@ var drawVoteResultMap = function(){
 
 };
 
+
+var showOilData = function () {
+    clearSVG(true);
+    $("#map").css("background-color", "white");
+    $("<a href='#'>返回</a>").appendTo("#map")
+        .click(function () {
+            clearSVG(true);
+            $("#map a").remove();
+            drawOilMap();
+        })
+        .css("margin-left", "10px")
+        .css("margin-top", "20px");
+
+    //$("<a href='#'>下一页</a>").appendTo("#map")
+    //    .click(function () {
+    //        clearSVG(true);
+    //        $("#map a").remove();
+    //        drawOilMap();
+    //    })
+    //    .css("margin-left", "10px")
+    //    .css("margin-top", "20px");
+
+
+    $("<div></div>").appendTo("#map")
+        .css("width", "900px")
+        .css("height", "600px")
+        .css("margin", "auto")
+        .attr("id", "tmpchart");
+    var tmpData = {};
+    tmpData.title = "苏格兰资源收入变化折线图";
+    tmpData.data = {
+        names:["石油", "天然气"],
+        datas:[oildata, gasdata]
+    };
+    showLineChart("tmpchart", tmpData);
+};
+
 var drawOilMap = function(){
     clearSVG(true);
 
     var width = 1000, height = 930;
 
-    $("#map").css("width", "100%");
+    $("#map").animate({
+        width:"100%"
+    },500);
+    //$("#map").css("width", "100%");
+
+    $("<div></div>").appendTo("#map")
+        .css("position", "absolute")
+        .css("width", "100px")
+        .css("height", "200px")
+        //.css("background-color", "black")
+        .attr("id", "tmpbar")
+        .css("margin-top", "10px")
+        .css("margin-left", "10px")
+        .click(function () {
+            showOilData();
+        });;
+
+    $("<div></div>").appendTo("#tmpbar")
+        .css("width", "100%")
+        .css("height", "30px")
+        //.css("background-color", "red")
+        .attr("id", "tmpbar1");
+    $("<div></div>").appendTo("#tmpbar")
+        .css("width", "100%")
+        .css("height", "30px")
+        //.css("background-color", "red")
+        .attr("id", "tmpbar2");
+
+    //$("<a href='#'>详情</a>").appendTo("#tmpbar");
+
+    $("<div></div>").appendTo("#tmpbar2")
+        .attr("class", "small-circle float-left")
+        .css("background-color", "rgb(0,128,0)");
+    $("<div><a href='#'>天然气</a></div>").appendTo("#tmpbar2")
+        .attr("class", "float-left")
+        .css("margin-left","5px")
+        .click(function () {
+            //showOilData();
+        });
+
+
+    $("<div></div>").appendTo("#tmpbar1")
+        .attr("class", "small-circle float-left")
+        .css("background-color", "red");
+    $("<div><a href='#'>石油</a></div>").appendTo("#tmpbar1")
+        .attr("class", "float-left")
+        .css("margin-left","5px")
+        .click(function () {
+            //showOilData();
+        });
+        //.css("background-color", "rgb(0,128,0)");
+
+
     $("#graphs").css("display", "none");
     projection = d3.geo.albers()
-        .center([2, 55])
+        .center([2, 57])
         .rotate([6, 0])
         .parallels([45, 60])
         .scale(600 * 9)
@@ -711,6 +807,12 @@ var drawOilMap = function(){
 
     $("#map").css("background-color", "rgb(166,195,221)");
     insertTabBar(700);
+
+
+
+
+
+
 };
 
 var drawPartiesMap = function() {
@@ -738,7 +840,7 @@ var insertTabBar = function (arg) {
         .css("width", "60px")
         .attr("class", "btn-group-vertical btn-group-xs");
 
-    var buttons = ["投票结果", "政党分布", "石油数据"];
+    var buttons = ["投票结果", "政党分布", "能源数据"];
     var actions = [drawVoteResultMap, drawPartiesMap, drawOilMap];
     for (var i = 0; i < buttons.length; i++) {
         $("<button>"+buttons[i]+"</button>")

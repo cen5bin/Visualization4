@@ -186,3 +186,67 @@ var showBarChart = function(container, data) {
     myChart.setOption(option);
 
 }
+
+
+var showLineChart = function (container, data) {
+    var myChart = echarts.init(document.getElementById(container));
+    var tmp1 = [];
+    for (var ii = 1970; ii < 2014; ii++)
+    tmp1.push(""+ii);
+    console.log("asd1");
+    var tmp2 = [];
+    for (var i = 0; i < data.data.names.length; i++) {
+        var tmp3 = {};
+        tmp3.name = data.data.names[i];
+        tmp3.type = "line";
+        tmp3.data = [];
+        for (var j = 0; j < tmp1.length; j++)
+        tmp3.data.push(data.data.datas[i][tmp1[j]]);
+        tmp2.push(tmp3);
+        //if (i == 1) alert(tmp3.data[i]);
+    }
+    console.log(data.data.names);
+    var option = {
+        title : {
+            text: data.title,
+            x:"center"
+            //subtext: '纯属虚构'
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:data.data.names,
+            x : 'center',
+            y : 'bottom'
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                //mark : {show: true},
+                //dataView : {show: true, readOnly: false},
+                magicType : {show: true, type: ['line', 'bar']},
+                //restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : false,
+                data : tmp1
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                axisLabel : {
+                    formatter: '{value} M'
+                }
+            }
+        ],
+        series : tmp2
+    };
+    myChart.setOption(option);
+};
