@@ -186,32 +186,3 @@ var prepareData = function() {
     }
 };
 
-var insertTabBar = function () {
-    $("<div>^</div>").appendTo("#map")
-        .attr("id", "map-tool-bar0")
-        .css("height", "20px")
-        .css("background-color", "#cccccc")
-        .css("text-align", "center")
-        .css("color", "white")
-        .css("position", "relative")
-        .css("width", $("#map").css("width"))
-        //.css("bottom", $("#map").css("bottom"))
-        .click(function(){
-            //this.append("<div></div>")
-            $("#map-tool-bar0").animate({
-                    bottom:"+=25px",
-                    opacity:'0'
-                }
-            ,100, function(){
-                    $("map-tool-bar").css("display", "block");
-                });
-
-        });
-    $("<div>aaa</div>").appendTo("#map")
-        .attr("id", "map-tool-bar")
-        .css("height", "40px")
-        .css("background-color", "#dddddd")
-        .css("position", "absolute")
-        //.css("bottom","25px")
-        .css("display", "none");
-};

@@ -54,6 +54,8 @@ var selectProvince = function(name) {
 
 var insertColorLabel = function(container) {
 
+    $("<div></div>").appendTo("#map").attr("id", container);
+    $("#"+container).insertBefore($("#map svg"));
     var colors1 = [colors.slice(0, 4), colors.slice(5,9)];
     var data0 = ["45%", "50%", "55%", "60%", "65%"];
 
@@ -452,3 +454,84 @@ function transition(svg, start, end) {
         return "translate(" + (center[0] - p[0] * k) + "," + (center[1] - p[1] * k) + ")scale(" + k + ")";
     }
 }
+
+
+var clearSVG = function () {
+    //alert($("#map svg"));
+    $("#map svg").remove();
+    $("#map div").remove();
+
+
+
+    projection = d3.geo.albers()
+        .center([3, 58])
+        .rotate([6, 0])
+        .parallels([45, 60])
+        .scale(600 * 9)
+        .translate([width /2, height / 2]);
+
+    svg = d3.select("#map").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .attr("preserveAspectRatio", "xMidYMid")
+        .attr("viewBox", "0 0 " + width + " " + height);
+
+    path = d3.geo.path()
+        .projection(projection);
+
+// COLORS
+// define color scale
+    colorScale = d3.scale.linear()
+        .domain(d3.extent(s))
+        .interpolate(d3.interpolateHcl)
+        .range([c1,c2]);
+
+// add grey color if no values
+    color = function(i){
+        if (i==undefined) {return "#cccccc"}
+        else return colorScale(i)
+    }
+
+};
+
+var drawVoteResultMap = function(){
+    clearSVG();
+    insertColorLabel("color-label-bar");
+    queue()
+        .defer(d3.json, "data/GBR.json")
+        .defer(d3.json, "data/uk.json")
+        .await(drawMap); // function that uses files
+
+    insertTabBar();
+
+};
+
+var drawOilMap = function(){
+
+};
+
+var drawPartiesMap = function() {
+
+};
+
+var insertTabBar = function () {
+    $("<div></div>").appendTo("#map")
+        .attr("id", "map-tool-bar")
+        .css("height", "70px")
+        //.css("background-color", "#dddddd")
+        .css("position", "absolute")
+        .css("bottom","30px")
+        .css("left", "410px")
+        .css("width", "60px")
+        .attr("class", "btn-group-vertical btn-group-xs");
+
+    var buttons = ["投票结果", "政党分布", "石油数据"];
+    var actions = [drawVoteResultMap, drawPartiesMap, drawOilMap];
+    for (var i = 0; i < buttons.length; i++) {
+        $("<button>"+buttons[i]+"</button>")
+            .appendTo("#map-tool-bar")
+            .attr("type", "button")
+            .attr("class", "btn btn-default")
+            .click(actions[i]);
+    }
+};

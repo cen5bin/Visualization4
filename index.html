@@ -24,9 +24,9 @@
 <body>
     <div id="main-container">
         <div id="map">
-            <div id="color-label-bar">
+            <!--<div id="color-label-bar">-->
 
-            </div>
+            <!--</div>-->
 
         </div>
         <div id="graphs">
@@ -89,7 +89,7 @@
     <script src="js/d3map.js"></script>
     <script type="text/javascript">
 
-
+//alert("zz");
 
         $(document).ready(function () {
 
@@ -99,7 +99,7 @@
                 $(id).attr("onclick", "work("+ids[i]+")");
             }
             insertColorLabel("color-label-bar");
-//            insertTabBar();
+            insertTabBar();
 
             for (var i = 0; i < provinceData.length; i++)
             $("<li role='presentation'><a role='menuitem' tabindex='"+i+"' href='#'>"+provinceData[i]+"</a></li>")
