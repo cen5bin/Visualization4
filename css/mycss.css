@@ -8,7 +8,8 @@ body {
     border: 2px solid #cccccc;
     margin-top: 5px;
     margin-left: 5px;
-    width: 1124px;
+    /*width: 1124px;*/
+    width: 1024px;
     height: 650px;
     margin-left: auto;
     margin-right: auto;
@@ -19,7 +20,8 @@ body {
     border-right: 1px solid #cccccc;
     display: inline;
     float: left;
-    width: 400px;
+    /*width: 400px;*/
+    width: 350px;
     height: 100%;
     overflow: scroll;
     /*background-color: #99ccff;*/
@@ -29,7 +31,7 @@ body {
 #graphs {
     display: inline;
     float: left;
-    width: 720px;
+    width: 650px;
     height: 100%;
     /*background-color: green;*/
 }

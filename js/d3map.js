@@ -650,7 +650,7 @@ var clearSVG = function (arg) {
 
 var recoverGraphs = function () {
     $("#map").animate({
-        width:"400px"
+        width:"350px"
     }, 500, function(){
         $("#graphs").css("display", "block");
         $("#map").css("background-color", "white");
@@ -702,7 +702,7 @@ var showOilData = function () {
         .css("margin", "auto")
         .attr("id", "tmpchart");
     var tmpData = {};
-    tmpData.title = "苏格兰资源收入变化折线图";
+    tmpData.title = "苏格兰能源收入变化折线图";
     tmpData.data = {
         names:["石油", "天然气"],
         datas:[oildata, gasdata]
@@ -806,7 +806,7 @@ var drawOilMap = function(){
         .await(drawMap2); // function that uses files
 
     $("#map").css("background-color", "rgb(166,195,221)");
-    insertTabBar(700);
+    insertTabBar(660);
 
 
 
