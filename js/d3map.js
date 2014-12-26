@@ -829,6 +829,9 @@ var drawPartiesMap = function() {
 var insertTabBar = function (arg) {
     var tmp = 0;
     if (arg) tmp = arg;
+
+    var width0 = $("body").css("width");
+    width0 = parseInt(width0.substr(0, 4));
     $("<div></div>").appendTo("#map")
         .attr("id", "map-tool-bar")
         .css("height", "70px")
@@ -839,7 +842,7 @@ var insertTabBar = function (arg) {
         //.css("bottom","90px")
         //.css("left","410px")
         //.css("right","100px")
-        .css("left", (410+tmp)+"px")
+        .css("left", (width0-870+tmp)+"px")
         .css("width", "60px")
         .attr("class", "btn-group-vertical btn-group-xs");
 
