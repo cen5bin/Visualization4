@@ -213,7 +213,7 @@ var projection = d3.geo.albers()
     .center([3, 58])
     .rotate([6, 0])
     .parallels([45, 60])
-    .scale(600 * 9)
+    .scale(600 * 8)
     .translate([width /2, height / 2]);
 
 var svg = d3.select("#map").append("svg")
@@ -621,7 +621,7 @@ var clearSVG = function (arg) {
         .center([3, 58])
         .rotate([6, 0])
         .parallels([45, 60])
-        .scale(600 * 9)
+        .scale(600 * 8)
         .translate([width /2, height / 2]);
 
     svg = d3.select("#map").append("svg")
@@ -773,7 +773,7 @@ var drawOilMap = function(){
         .center([2, 57])
         .rotate([6, 0])
         .parallels([45, 60])
-        .scale(600 * 9)
+        .scale(600 * 8)
         .translate([width /2, height / 2]);
 
     svg = d3.select("#map").append("svg")
@@ -834,8 +834,11 @@ var insertTabBar = function (arg) {
         .css("height", "70px")
         //.css("background-color", "#dddddd")
         .css("position", "absolute")
-        .css("bottom","30px")
-        //.css("right","20px")
+        //.css("position", "relative")
+        .css("top", "575px")
+        //.css("bottom","90px")
+        //.css("left","410px")
+        //.css("right","100px")
         .css("left", (410+tmp)+"px")
         .css("width", "60px")
         .attr("class", "btn-group-vertical btn-group-xs");
