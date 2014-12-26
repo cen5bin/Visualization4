@@ -702,10 +702,10 @@ var showOilData = function () {
         .css("margin", "auto")
         .attr("id", "tmpchart");
     var tmpData = {};
-    tmpData.title = "苏格兰能源收入变化折线图";
+    tmpData.title = "苏格兰能源及其他收入变化折线图";
     tmpData.data = {
-        names:["石油", "天然气"],
-        datas:[oildata, gasdata]
+        names:["石油", "天然气", "其他"],
+        datas:[oildata, gasdata, otherdata]
     };
     showLineChart("tmpchart", tmpData);
 };
