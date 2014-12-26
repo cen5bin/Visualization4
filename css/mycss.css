@@ -2,6 +2,11 @@
 body {
     background-color: #222222;
     /*background-image: url("../img/bg.jpg");*/
+    /*scroll:no;*/
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 #main-container {
@@ -23,7 +28,10 @@ body {
     /*width: 400px;*/
     width: 350px;
     height: 100%;
-    overflow: scroll;
+    /*overflow-x: no;*/
+    /*overflow-y: hidden;*/
+    overflow:scroll;
+    scroll:no;
     /*background-color: #99ccff;*/
     /*background-color: #000000;*/
 }
@@ -161,6 +169,8 @@ body {
 
 #dropdown-menu {
     overflow: scroll;
+    /*overflow-x: visible;*/
+    /*overflow-y: visible;*/
     max-height: 200px;
 
 }
